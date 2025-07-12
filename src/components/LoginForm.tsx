@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { login } from '../api/auth';
 import { LoginCredentials } from '../types/auth';
 
-const LoginForm: React.FC = () => {
+interface LoginFormProps {
+  onLoginSuccess?: (token: string) => void;
+}
+
+const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<string>('');
@@ -13,11 +17,15 @@ const LoginForm: React.FC = () => {
         setLoading(true);
         setError('');
 
-        const credentials: LoginCredentials = { login_id: email, login_id_type: 'email', password };
+        const credentials: LoginCredentials = {
+            login_id: email,
+            login_id_type: 'email',
+            password,
+        };
 
         try {
-            await login(credentials);
-            // Handle successful login (e.g., redirect or show a success message)
+            const res = await login(credentials);
+            onLoginSuccess?.(res.access_token);
         } catch (err) {
             setError('Login failed. Please check your credentials.');
         } finally {

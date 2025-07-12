@@ -1,8 +1,35 @@
 body {
   margin: 0;
   font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%); /* SAME as header */
   min-height: 100vh;
+}
+
+.main-header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1); /* Lớp trong suốt mờ */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+h2 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+p {
+  color: #050505;
+  font-size: 1rem;
+  margin: 0.25rem 0 0.5rem 0;
 }
 
 .app-container {
@@ -13,54 +40,267 @@ body {
   min-height: 100vh;
 }
 
-.card {
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-  padding: 2rem 2.5rem;
-  margin: 2rem 0;
-  min-width: 320px;
-  max-width: 90vw;
-}
-
-h2 {
-  color: #185a9d;
-  margin-bottom: 1.5rem;
+.card form {
+  width: 100%;
 }
 
 input[type="email"],
 input[type="password"] {
   width: 100%;
+  box-sizing: border-box; /* Quan trọng! Giúp padding không làm vượt width */
   padding: 0.75rem;
   margin: 0.5rem 0 1rem 0;
-  border: 1px solid #43cea2;
+  border: 1px solid #874e2c;
   border-radius: 8px;
   font-size: 1rem;
+  background-color: rgba(255,255,255,0.6);
+  color: #2c3e50;
   outline: none;
-  transition: border 0.2s;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;     /* ❌ Xóa dòng này nếu có - hoặc để nhỏ */
+  margin-bottom: 1rem;  /* ❌ Xóa dòng này nếu có - hoặc để nhỏ */
+  max-height: 200px;
+  overflow: visible;
+}
+
+.logo-img {
+  width: 220px; /* vừa đủ không bị tràn */
+  height: auto;
+  filter: drop-shadow(0 0 8px rgba(135, 78, 44, 0.4))
+          drop-shadow(0 0 10px rgba(80, 128, 127, 0.4));
+}
+
+/* Card login */
+.card {
+  background: rgba(253, 246, 236, 0.8); /* kem cổ điển */
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(135, 78, 44, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 2rem 2.5rem;
+  min-width: 320px;
+  max-width: 90vw;
+  color: #2c3e50;
+}
+
+/* Title */
+h2 {
+  color: #874e2c;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Labels */
+label {
+  font-weight: 500;
+  color: #874e2c;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Inputs */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0 1rem 0;
+  border: 1px solid rgba(135, 78, 44, 0.4);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: rgba(255,255,255,0.6);
+  color: #2c3e50;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: rgba(44, 44, 44, 0.6);
 }
 
 input:focus {
-  border: 1.5px solid #185a9d;
+  border: 1.5px solid #50807f;
+  background-color: rgba(255,255,255,0.8);
 }
 
+/* Button */
 button {
-  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  background: linear-gradient(90deg, #874e2c 0%, #50807f 100%);
   color: #fff;
   border: none;
   border-radius: 8px;
   padding: 0.75rem 2rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.3s ease;
   margin-top: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-  background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+  background: linear-gradient(90deg, #50807f 0%, #874e2c 100%);
 }
 
-label {
+.logo-img {
+  width: 200px; /* tăng từ 140px lên 180px */
+  height: auto;
+  margin-bottom: 0.75rem;
+  filter: drop-shadow(0 0 10px rgba(135, 78, 44, 0.4))
+          drop-shadow(0 0 20px rgba(80, 128, 127, 0.4));
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -6rem;   /* giảm từ 2rem → 1.5rem */
+  margin-bottom: -3rem;  /* giảm khoảng cách dưới */
+}
+
+/* Club Box */
+.club-box {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(80,128,127,0.10);
+  padding: 1.5rem;
+  min-width: 220px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  border: 2px solid #f2d694;
+  flex: 1 0 220px;
+  max-width: 300px;
+  text-align: center;
   font-weight: 500;
-  color: #185a9d;
+}
+
+.club-box:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(80,128,127,0.18);
+  border-color: #50807f;
+}
+
+.calendar-wrapper {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.rbc-calendar {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  color: #2c3e50;
+}
+
+.rbc-toolbar {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.rbc-btn-group > button {
+  background: #f2d694;
+  border: none;
+  color: #2c3e50;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+}
+
+.rbc-btn-group > button:hover {
+  background: #50807f;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.rbc-event {
+  background-color: #50807f !important;
+  color: #fff !important;
+  border: none;
+  padding: 4px 6px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.rbc-time-content > * > .rbc-timeslot-group {
+  border-bottom: 1px solid #ddd;
+}
+
+.rbc-time-header-content, .rbc-time-content {
+  border-left: 1px solid #ccc;
+}
+
+.rbc-time-header-gutter {
+  background-color: #f8f8f8;
+  border-right: 1px solid #ccc;
+  font-weight: 500;
+}
+
+.rbc-time-slot {
+  transition: background-color 0.3s ease;
+}
+
+.rbc-time-slot:hover {
+  background-color: #f0f0f0;
+}
+
+
+.club-detail-wrapper {
+  display: flex;
+  align-items: flex-start; /* ✅ Thẳng hàng từ đỉnh (top alignment) */
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.club-info {
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.calendar-wrapper {
+  flex: 2;
+  min-width: 600px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  padding: 1rem;
+  margin-top: 0; /* ❌ Nếu có margin-top, hãy xóa */
+}
+
+.club-info h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #874e2c;
+}
+
+.club-info {
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  margin-top: 0; /* ❌ Xoá margin nếu có */
 }
