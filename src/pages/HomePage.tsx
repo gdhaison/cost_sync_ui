@@ -8,7 +8,7 @@ interface Club {
   description: string;
 }
 
-const API_URL = process.env.BASE_URL || 'http://localhost:5000';
+const API_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:5000';
 
 const HomePage: React.FC<{ token: string }> = ({ token }) => {
   const [clubs, setClubs] = useState<Club[]>([]);
