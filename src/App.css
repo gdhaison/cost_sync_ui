@@ -1,3 +1,11 @@
+:root {
+  --vh: 1vh;
+}
+
+.fullscreen {
+  height: calc(var(--vh, 1vh) * 100);
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
