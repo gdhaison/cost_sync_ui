@@ -429,20 +429,38 @@ margin-top: 0; /* ❌ Xoá margin nếu có */
   .calendar-wrapper {
     min-width: 0;
     width: 100vw;
-    padding: 0.5rem 0.25rem;
+    max-width: 100vw;
+    padding: 0.5rem 0.1rem;
     border-radius: 10px;
     margin-top: 1rem;
     box-shadow: 0 2px 8px rgba(80,128,127,0.08);
+    overflow-x: auto;
   }
   .rbc-calendar {
     padding: 0.5rem 0.1rem;
     border-radius: 10px;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+    min-width: 320px;
+    width: 100%;
+    overflow-x: auto;
+  }
+  .rbc-time-header, .rbc-time-content, .rbc-time-header-content {
+    min-width: 320px;
+    width: 100%;
+    overflow-x: auto;
+  }
+  .rbc-time-gutter, .rbc-time-header-gutter {
+    min-width: 36px;
+    width: 36px;
+  }
+  .rbc-timeslot-group {
+    min-height: 32px;
   }
   .rbc-toolbar {
     flex-direction: column;
     gap: 0.5rem;
     font-size: 1rem;
+    align-items: flex-start;
   }
   .rbc-btn-group > button {
     padding: 0.4rem 0.7rem;
@@ -451,13 +469,12 @@ margin-top: 0; /* ❌ Xoá margin nếu có */
   .rbc-event {
     font-size: 0.8rem;
     padding: 2px 4px;
-  }
-  input, select, textarea, button {
-    font-size: 1rem;
-    padding: 0.7em 0.8em;
     border-radius: 6px;
+    min-width: 0;
+    word-break: break-word;
   }
-  .register-form .form-group {
-    margin-bottom: 0.7rem;
+  .rbc-row-segment, .rbc-date-cell, .rbc-time-slot {
+    min-width: 0;
+    word-break: break-word;
   }
 }
