@@ -51,6 +51,7 @@ const ClubDetailPage: React.FC<{ token: string }> = ({ token }) => {
   const [events, setEvents] = useState<MeetingEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedEvent, setSelectedEvent] = useState<MeetingEvent | null>(null);
+  const [scrollToTime, setScrollToTime] = useState<Date>(new Date(new Date().setHours(18, 0, 0, 0)));
 
   useEffect(() => {
     const fetchClub = async () => {
@@ -154,6 +155,24 @@ const ClubDetailPage: React.FC<{ token: string }> = ({ token }) => {
     fetchMeetings();
   }, [clubId, token]);
 
+  useEffect(() => {
+    if (events.length > 0) {
+      const now = new Date();
+      // Find the next event after now
+      const futureEvents = events.filter(e => e.start > now);
+      let nearest: MeetingEvent | null = null;
+      if (futureEvents.length > 0) {
+        nearest = futureEvents.reduce((a, b) => (a.start < b.start ? a : b));
+      } else {
+        // fallback: earliest event in the list
+        nearest = events.reduce((a, b) => (a.start < b.start ? a : b));
+      }
+      if (nearest) {
+        setScrollToTime(new Date(nearest.start));
+      }
+    }
+  }, [events]);
+
   const handleRegister = () => {
     if (selectedEvent) {
       alert(`Bạn đã đăng ký sự kiện "${selectedEvent.title}" thành công!`);
@@ -181,7 +200,7 @@ const ClubDetailPage: React.FC<{ token: string }> = ({ token }) => {
             endAccessor="end"
             defaultView="week"
             style={{ height: 600 }}
-            scrollToTime={new Date(new Date().setHours(18, 0, 0))}
+            scrollToTime={scrollToTime}
             onSelectEvent={(event: MeetingEvent) => setSelectedEvent(event)}
           />
         </div>
