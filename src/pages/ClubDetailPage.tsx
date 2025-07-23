@@ -7,7 +7,7 @@ import { parse, startOfWeek, getDay, format } from 'date-fns';
 import { enUS } from 'date-fns/locale';
 import '../components/ClubDetailPage.css'; // 👈 đảm bảo đã import CSS
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_URL = process.env.BASE_URL || 'http://localhost:5000';
 
 interface Club {
   id: number;

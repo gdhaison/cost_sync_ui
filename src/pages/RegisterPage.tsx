@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_URL = process.env.BASE_URL || 'http://localhost:5000';
 
 const RegisterPage: React.FC = () => {
   const [username, setUsername] = useState('');
