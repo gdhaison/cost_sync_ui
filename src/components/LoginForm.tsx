@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { login } from '../api/auth';
 import { LoginCredentials } from '../types/auth';
+import { Link } from 'react-router-dom';
 
 interface LoginFormProps {
   onLoginSuccess?: (token: string) => void;
@@ -57,6 +58,10 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
             <button type="submit" disabled={loading}>
                 {loading ? 'Logging in...' : 'Login'}
             </button>
+            <div style={{ marginTop: '1rem', textAlign: 'center' }}>
+                <span>Don't have an account? </span>
+                <Link to="/register">Register</Link>
+            </div>
         </form>
     );
 };

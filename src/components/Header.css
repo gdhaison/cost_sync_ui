@@ -1,4 +1,9 @@
 .main-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   width: 100%;
   background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
   box-shadow: 0 2px 8px rgba(80,128,127,0.08);
@@ -17,12 +22,12 @@
 }
 
 .navbar-logo img {
-  height: 120px;         /* Increase height */
-  max-height: none;     /* Allow overflow */
+  height: 80px;         /* Increase height */
+  max-height: 80px;     /* Allow overflow */
   width: auto;
   margin-right: 1rem;
-  margin-top: -12px;    /* Pull up to center visually */
-  margin-bottom: -12px; /* Pull down to balance */
+  margin-top: 0;    /* Pull up to center visually */
+  margin-bottom: 0; /* Pull down to balance */
   transition: height 0.2s;
 }
 
