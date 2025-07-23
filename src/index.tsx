@@ -8,3 +8,11 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js').catch(registrationError => {
+      console.log('SW registration failed: ', registrationError);
+    });
+  });
+}
