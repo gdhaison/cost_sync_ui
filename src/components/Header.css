@@ -105,3 +105,31 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+/* Mobile (PWA) styles for header */
+@media (max-width: 600px) {
+  .main-header {
+    padding: 0.5rem 0.5rem;
+    font-size: 1rem;
+    position: static;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .main-header .logo {
+    width: 120px;
+    height: auto;
+    margin: 0.2rem 0;
+  }
+  .main-header nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  .main-header a, .main-header button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+  }
+}
