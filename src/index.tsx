@@ -4,7 +4,16 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  <div style={{
+  width: '100%',
+  maxWidth: '100vw',
+  overflowX: 'hidden',
+  boxSizing: 'border-box',
+  paddingLeft: '-8px',
+  paddingRight: '10px'
+}}>
+  <App />
+</div>
   </React.StrictMode>,
   document.getElementById('root')
 );

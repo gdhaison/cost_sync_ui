@@ -59,6 +59,14 @@ const App: React.FC = () => {
     localStorage.removeItem('token');
   };
 
+  let userId: number | null = null;
+  if (token && isTokenValid(token)) {
+    try {
+      const decoded: any = jwtDecode(token);
+      userId = decoded.sub || decoded.user_id || null;
+    } catch {}
+  }
+
   if (loading) return <div>Loading...</div>;
 
   return (
@@ -77,7 +85,7 @@ const App: React.FC = () => {
               {token && isTokenValid(token) ? <ClubDetailPage token={token} /> : <Redirect to="/login" />}
             </Route>
             <Route path="/">
-              {token && isTokenValid(token) ? <HomePage token={token} /> : <Redirect to="/login" />}
+              {token && isTokenValid(token) && userId !== null ? <HomePage token={token} userId={userId} /> : <Redirect to="/login" />}
             </Route>
           </Switch>
         </div>
